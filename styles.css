@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap");
+
+body {
+  height: 100dvh;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+h1 {
+  font-size: 1em;
+  margin: 10px;
+}
+
+button {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.memory-card {
+  width: 130px;
+  height: 130px;
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.memory-card.flip .back {
+  transform: rotateY(0);
+}
+
+.memory-card.flip .front {
+  transform: rotateY(180deg);
+}
+
+.back,
+.front {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+  border-radius: 12px;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #ffffff;
+  border: 1px groove #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  transform: rotateY(0deg);
+  background-color: #ffffff;
+  border: 0.5px groove #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-message {
+  font-size: 24px;
+  color: green;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 50px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}
